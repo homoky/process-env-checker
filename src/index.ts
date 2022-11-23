@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as fs from 'fs';
 import { Command } from "commander";
 
@@ -7,7 +8,7 @@ program.name('process-env-checker').helpOption(false)
 
 program.command('check')
   .description('Check if all requested environment variables are present.')
-  .argument('<first>', 'path to declaration file',)
+  .argument('<path>', 'path to declaration file',)
   .action(async (path: string) => {
 
     if (!fs.existsSync(path)) { console.warn("Declaration file does not exists"); process.exit(1); }
@@ -27,7 +28,6 @@ program.command('check')
       console.warn('\nThose variables are missing: ' + missingVariables?.join(',') + '\n');
       process.exit(1);
     }
-
   });
 
 program.parse(process.argv);

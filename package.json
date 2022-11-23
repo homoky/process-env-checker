@@ -1,9 +1,12 @@
 {
   "name": "process-env-checker",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Check if all requested environment variables are present.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "process-env-checker": "dist/index.js"
+  },
   "homepage": "https://github.com/homoky/process-env-checker",
   "repository": {
     "type": "git",
@@ -16,7 +19,7 @@
     "start": "ts-node ./src/index.ts",
     "prepublish": "yarn build",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "STRIPE_API_KEY=my-secret-key ts-node ./src/index.ts check ./examples/env.d.ts"
   },
   "keywords": [
     "environmental variables",

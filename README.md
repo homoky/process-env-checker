@@ -17,6 +17,8 @@ declare namespace NodeJS {
 }
 ```
 
-2. Install this package locally in `devDependencies` like `npm install process-env-checker`
+2. Install this package locally in `devDependencies` like `yarn add process-env-checker`
 
-3. Run manually or add to package.json script. Do not forget to provide path to definition file: `npm process-env-checker --path ./env.d.ts`
+3. Run manually or add to package.json script. Do not forget to provide path to definition file: `yarn process-env-checker check ./env.d.ts`
+
+Note: Do not forget to pass envs as part of script, otherwise it fails. Example: `MY_ENV_TEST=hello yarn process-env-checker check ./env.d.ts`
